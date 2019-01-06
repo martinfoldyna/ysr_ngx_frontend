@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header>Přidat nové místo</nb-card-header>
+      <nb-card-body>
+        <!--<div style="height: 300px"-->
+             <!--leaflet-->
+             <!--[leafletOptions]="options"-->
+             <!--(leafletClick)="clickOnMap()"></div>-->
+        <form class="form-inline" [formGroup]="form" (submit)="addPlace(form.value)">
+          <input type="text" class="form-control full-width" formControlName="name" placeholder="Místo">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div *ngFor="let place of placesArray" class="col-6 col-md-4">
+    <nb-card>
+      <nb-card-header>
+        <h2>{{place.name}}</h2>
+      </nb-card-header>
+      <nb-card-footer>
+        <div class="btn-with-icon-example btn-group-full-width">
+          <button class="btn btn-danger full-width" type="button" (click)="deleteMatch(place._id)">
+            <span>Odebrat</span>
+          </button>
+        </div>
+
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+

@@ -1,0 +1,49 @@
+    <nb-card class="with padding">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Pozvání jednoho hráče">
+          <form [formGroup]="formInviteOne">
+            <div class="form-group full-width">
+              <label for="email">Email</label>
+              <input type="email" class="form-control full-width" id="email" placeholder="Email" formControlName="email">
+            </div>
+            <div class="form-group full-width">
+              <label for="email">Jméno</label>
+              <input type="email" class="form-control full-width" id="name" placeholder="Jméno" formControlName="name">
+            </div>
+            <button type="submit" class="btn btn-hero-success" (click)="sendInvite(formInviteOne.value)">Submit</button>
+          </form>
+        </nb-tab>
+        <!--<nb-tab tabTitle="Pozvání více hráčů">-->
+          <!--<form [formGroup]="formInviteMore">-->
+            <!--<div class="form-group full-width">-->
+              <!--<label for="email">Email</label>-->
+              <!--<input type="email" class="form-control full-width" id="email" placeholder="Email" formControlName="email">-->
+            <!--</div>-->
+            <!--<div class="form-group full-width">-->
+              <!--<label for="email">Jméno</label>-->
+              <!--<input type="email" class="form-control full-width" id="name" placeholder="Jméno" formControlName="name">-->
+            <!--</div>-->
+
+            <!--<button type="submit" class="btn btn-hero-success" (click)="addToArray(formInviteMore.value)">Přidat</button>-->
+            <!--<button type="submit" class="btn btn-hero-success" (click)="sendInvite(invitesArray)" *ngIf="invitesArray.length > 0">Odeslat pozvánky</button>-->
+
+          <!--</form>-->
+          <!--<div *ngIf="invitesArray.length > 0">-->
+            <!--<ul>-->
+              <!--<li *ngFor="let invite of invitesArray">{{invite.name}} - {{invite.email}}</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        <!--</nb-tab>-->
+      </nb-tabset>
+    </nb-card>
+
+
+<nb-card>
+  <nb-card-header>
+    Přijmání uživatelských registrací
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

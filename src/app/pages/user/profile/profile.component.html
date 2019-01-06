@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>Informace o uživateli</nb-card-header>
+        <nb-card-body>
+          <form [formGroup]="form">
+            <div class="row">
+              <label for="username" class="col-sm-3">Uživatelské jméno</label>
+              <div class="col-sm-9">
+                <p id="username" *ngIf="!showForm">{{userData.username}}</p>
+                <input type="text" class="form-control" formControlName="username" *ngIf="showForm" [(ngModel)]="userData.username">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label">Jméno</label>
+              <div class="col-sm-9">
+                <p id="name" *ngIf="!showForm">{{userData.name}}</p>
+                <input type="text" class="form-control" formControlName="name" *ngIf="showForm" [(ngModel)]="userData.name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label">Číslo dresu</label>
+              <div class="col-sm-9">
+                <p id="name" *ngIf="!showForm">{{userData.jerseyNumber}}</p>
+                <input type="text" class="form-control" formControlName="number" *ngIf="showForm" [(ngModel)]="userData.jerseyNumber">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-hero-success" *ngIf="showForm" (click)="updateUser(form.value)">Odeslat</button>
+            <button class="btn btn-danger" *ngIf="showForm" (click)="showForm = !showForm">Zrušit</button>
+          </form>
+        </nb-card-body>
+        <nb-card-footer>
+          <button class="btn btn-success" *ngIf="!showForm" (click)="showForm = !showForm">Upravit</button>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+    <div class="col-md-12">
+      <nb-card>
+        <!--TODO: dodělat odehrané zápasy-->
+        <nb-card-header>
+          Odehrané zápasy
+        </nb-card-header>
+        <nb-card-body>
+          <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onUserRowSelect($event)">
+          </ng2-smart-table>
+        </nb-card-body>
+      </nb-card>
+    </div>
+</div>

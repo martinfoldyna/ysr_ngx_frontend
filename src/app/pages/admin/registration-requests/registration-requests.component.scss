@@ -1,0 +1,32 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+
+:host /deep/ ng2-smart-table .ng2-smart-actions a.ng2-smart-action{ margin-bottom: -45px !important; }
+:host /deep/ ng2-smart-table .ng2-smart-actions a.ng2-smart-action .nb-checkmark:hover{ color: #49DA81; }
+
+
+@include nb-install-component() {
+  nb-tabset {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nb-tab {
+    padding: nb-theme(padding);
+  }
+
+  /deep/ ngx-tab1, /deep/ ngx-tab2 {
+    display: block;
+    padding: nb-theme(padding);
+  }
+
+  @include media-breakpoint-down(xs) {
+    nb-tabset /deep/ ul {
+      font-size: 1rem;
+      padding: 0 0.25rem;
+    }
+  }
+}

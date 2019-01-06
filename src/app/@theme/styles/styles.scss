@@ -1,0 +1,62 @@
+// themes - our custom or/and out of the box themes
+@import 'themes';
+
+// framework component themes (styles tied to theme variables)
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/all';
+
+// global app font size
+@import './font-size';
+
+// loading progress bar theme
+@import './pace.theme';
+
+@import './bootstrap-rtl';
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  // fixed in rc.9 and can be removed after upgrade
+  .custom-control .custom-control-indicator {
+    border-radius: 50%; // TODO: quickfix for https://github.com/akveo/nebular/issues/275
+  }
+  @include bootstrap-rtl();
+};
+
+//.spinner {
+//  height: 50px;
+//  width: 50px;
+//  -webkit-border-radius: 100%;
+//  -moz-border-radius: 100%;
+//  border-radius: 100%;
+//  border: 10px solid #5ABB63;
+//  border-top-color: #fff;
+//  border-bottom-color: #fff;
+//  animation: rotation 2s linear infinite;
+//}
+//
+//@keyframes rotation {
+//  0% {
+//    -webkit-transform: rotate(0deg);
+//    -moz-transform: rotate(0deg);
+//    -ms-transform: rotate(0deg);
+//    -o-transform: rotate(0deg);
+//    transform: rotate(0deg);
+//  }
+//
+//  100% {
+//    -webkit-transform: rotate(360deg);
+//    -moz-transform: rotate(360deg);
+//    -ms-transform: rotate(360deg);
+//    -o-transform: rotate(360deg);
+//    transform: rotate(360deg);
+//}
+//
+//}
